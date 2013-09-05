@@ -1,0 +1,27 @@
+<p>
+  <strong>№ счёта:</strong>
+  <%= @bank_book.id %>
+</p>
+
+<p>
+  <strong>Наименование:</strong>
+  <%= @bank_book.name %>
+</p>
+
+<p>
+  <strong>Bank account:</strong>
+  <%= @bank_book.bank_account %>
+</p>
+
+<p>
+  <strong>Сумма:</strong>
+  <%= @bank_book.amount %>
+</p>
+
+<p>
+  <strong>Сальдо:</strong>
+  <%= @bank_book.saldo %>
+</p>
+
+<%= link_to 'Изменить', edit_bank_book_path(@bank_book), class: "btn" %> |
+<%= link_to 'К списку', bank_books_path %>

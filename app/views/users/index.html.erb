@@ -1,12 +1,17 @@
-<h3>Users</h3>
+<h3>Пользователи</h3>
 <div class="span8">
+  <% if current_user.has_role? :admin %>
+    <div>
+      <%= link_to "Добавить пользователя", new_user_invitation_path, class: "btn btn-primary" %>
+    </div>
+  <% end %>
 <table class="table table-condensed">
   <thead>
     <tr>
-      <th>Username</th>
-      <th>Email</th>
-      <th>Registered</th>
-      <th>Role</th>
+      <th>ФИО</th>
+      <th>Почта</th>
+      <th>Зарегистрирован</th>
+      <th>Роль</th>
       <th></th>
       <th></th>
     </tr>
@@ -22,7 +27,7 @@
         <a data-toggle="modal" href="#role-options-<%= user.id %>" class="btn btn-mini" type="button">Change role</a>
         <%= render user %>
       </td>
-      <td><%= link_to("Delete user", user_path(user), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => 'btn btn-mini') unless user == current_user %></td>
+      <td><%= link_to("Delete user", user_path(user), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => 'btn btn-mini btn-danger') unless user == current_user %></td>
     </tr>
   <% end %>
   </tbody>

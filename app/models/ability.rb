@@ -5,6 +5,13 @@ class Ability
     user ||= User.new # guest user (not logged in)
     if user.has_role? :admin
       can :manage, :all
+    else
+      can :manage, User do |u|
+        user == u
+      end
+      can :manage, BankBook do |bb|
+        bb.users.include? user
+      end
     end
     # Define abilities for the passed in user here. For example:
     #

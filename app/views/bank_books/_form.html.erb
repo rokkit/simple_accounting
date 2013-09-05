@@ -1,0 +1,16 @@
+<%= simple_form_for(@bank_book) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :id %>
+    <%= f.input :name %>
+    <%= f.input :bank_account %>
+    <%= f.input :amount %>
+    <%= f.input :saldo %>
+    <%= f.association :users, label: "Имеют доступ",as: :check_boxes,:label_method => lambda { |owner| "#{owner.name} | #{owner.roles.map {|r| r.name }}" } %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

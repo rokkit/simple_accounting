@@ -1,0 +1,38 @@
+<h1>Лицевые счета</h1>
+
+<%= link_to 'Добавить лицевой счёт', new_bank_book_path, class: "btn" %>
+
+<table>
+  <thead>
+    <tr>
+      <th>№ Счёта</th>
+      <th>Наименование</th>
+      <th>Прикрепленные банковские счета</th>
+      <th>Сумма</th>
+      <th>Дневное сальдо</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @bank_books.each do |bank_book| %>
+        <% if can? :manage, bank_book %>
+        <tr>
+          <td><%= bank_book.id %></td>
+          <td><%= bank_book.name %></td>
+          <td><%= bank_book.bank_account %></td>
+          <td><%= bank_book.amount %></td>
+          <td><%= bank_book.saldo %></td>
+          <td><%= link_to 'Show', bank_book %></td>
+          <td><%= link_to 'Edit', edit_bank_book_path(bank_book) %></td>
+          <td><%= link_to 'Destroy', bank_book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+

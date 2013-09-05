@@ -1,3 +1,12 @@
-<h3>User</h3>
+<h3>Пользователь</h3>
 <p>User: <%= @user.name %></p>
 <p>Email: <%= @user.email if @user.email %></p>
+<% if current_user.has_role? :admin %>
+  <p>IP актуальной сессии: <%= @user.current_sign_in_ip %></p>
+  <p>Последняя сессия: <b>Дата</b> <%= @user.last_sign_in_at %> <b>IP:</b> <%= @user.last_sign_in_ip %></p>
+<% end %>
+  <% if can?(:manage, @user) %>
+    <%= link_to "Изменить", edit_registration_path(@user), class: "btn" %>
+  <% end %>
+  <% if current_user.has_role? :admin %>
+  <% end %>
