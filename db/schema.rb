@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130905115859) do
+ActiveRecord::Schema.define(version: 20130905134228) do
 
   create_table "activities", force: true do |t|
     t.integer  "trackable_id"
@@ -46,6 +46,33 @@ ActiveRecord::Schema.define(version: 20130905115859) do
   end
 
   add_index "bank_books_users", ["bank_book_id", "user_id"], name: "index_bank_books_users_on_bank_book_id_and_user_id", unique: true
+
+  create_table "io_type_operations", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "money_type_operations", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "operations", force: true do |t|
+    t.datetime "o_date",                                            default: '2013-09-05 13:39:58'
+    t.integer  "from_id"
+    t.decimal  "amount",                  precision: 20, scale: 10
+    t.text     "description",                                       default: ""
+    t.integer  "user_id"
+    t.integer  "money_type_operation_id"
+    t.integer  "io_type_operation_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "bank_book_id"
+  end
+
+  add_index "operations", ["user_id"], name: "index_operations_on_user_id"
 
   create_table "plutus_accounts", force: true do |t|
     t.string   "name"

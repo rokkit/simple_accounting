@@ -1,0 +1,15 @@
+<%= simple_form_for([@bank_book, @operation]) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :o_date, label: "Дата операции" %>
+    <%= f.association :from, label: "От кого" %>
+    <%= f.association :money_type_operation, label: "Тип расчёта" %>
+    <%= f.association :io_type_operation, label: "Тип операции" %>
+    <%= f.input :description, label: "Назначение" %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Готово" %>
+  </div>
+<% end %>

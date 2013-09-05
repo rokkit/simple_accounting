@@ -17,7 +17,7 @@ gem 'rolify'
 gem 'simple_form', '>= 3.0.0.rc'
 gem 'simple-navigation-bootstrap'
 gem 'public_activity'
-gem "plutus", git: 'https://github.com/mbulat/plutus.git', branch: 'rails4'
+#gem "plutus", git: 'https://github.com/mbulat/plutus.git', branch: 'rails4'
 gem 'thin'
 group :development do
   gem 'better_errors'
