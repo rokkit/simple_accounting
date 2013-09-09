@@ -27,6 +27,10 @@ group :development do
   gem 'hub', :require=>nil
   gem 'quiet_assets'
 end
+
+group :production do
+  gem 'mysql2'
+end
 group :development, :test do
   gem 'factory_girl_rails'
   gem 'rspec-rails'
