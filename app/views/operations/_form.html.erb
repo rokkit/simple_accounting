@@ -2,11 +2,23 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :o_date, label: "Дата операции" %>
+    <div id="datetimepicker1" class="input-append date">
+      <input name="operation[o_date]" data-format="dd/MM/yyyy hh:mm:ss" type="text"></input>
+      <span class="add-on">
+        <i data-time-icon="icon-time" data-date-icon="icon-calendar">
+        </i>
+      </span>
+    </div>
+    <script type="text/javascript">
+
+</script>
     <%= f.association :from, label: "От кого" %>
+    <%= f.association :to_user, label: "Кому" %>
     <%= f.association :money_type_operation, label: "Тип расчёта" %>
     <%= f.association :io_type_operation, label: "Тип операции" %>
     <%= f.input :description, label: "Назначение" %>
+
+    <%= f.input :amount, label: "Сумма" %>
   </div>
 
   <div class="form-actions">

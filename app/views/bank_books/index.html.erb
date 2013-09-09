@@ -1,8 +1,7 @@
-<h1>Лицевые счета</h1>
-
-<%= link_to 'Добавить лицевой счёт', new_bank_book_path, class: "btn" %>
-
-<table>
+<%= content_for :side_menu do %>
+  <li><%= link_to "Добавить счёт", new_bank_book_path %></li>
+<% end %>
+<table class="table">
   <thead>
     <tr>
       <th>№ Счёта</th>

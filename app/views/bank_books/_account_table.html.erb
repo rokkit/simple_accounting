@@ -1,24 +1,28 @@
 <h4>Приход</h4>
-<table>
+<table class="table">
   <thead>
     <th>#</th>
     <th>Дата</th>
     <th>От кого</th>
+    <th>Кому</th>
     <th>Сумма</th>
     <th>Тип</th>
     <th>Назначение</th>
     <th>Ввёл</th>
+    <th></th>
   </thead>
   <tbody>
-    <% records.each do |record| %>
+    <% records.each do |r| %>
       <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td><%= link_to r.id, r %></td>
+        <td><%= r.o_date %></td>
+        <td><%= r.from.try :name %></td>
+        <td><%= r.to_user.try :name %></td>
+        <td><%= r.amount %></td>
+        <td><%= r.money_type_operation %></td>
+        <td<%= r.io_type_operation %>></td>
+        <td><%= r.user.try :name %></td>
+        <td><%= link_to "Удалить", operation_path(r), method: :delete, confirm: "Вы уверены?" %></td>
       </tr>
     <% end %>
   </tbody>

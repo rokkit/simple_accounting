@@ -17,3 +17,10 @@ user = User.find_or_create_by_email :name => ENV['ADMIN_NAME'].dup, :email => EN
 puts 'user: ' << user.name
 user.confirm!
 user.add_role :admin
+
+#operations attributes
+MoneyTypeOperation.find_or_create_by_name name: "Безнал"
+MoneyTypeOperation.find_or_create_by_name name: "Нал"
+
+IoTypeOperation.find_or_create_by_name name: "Приход"
+IoTypeOperation.find_or_create_by_name name: "Расход"

@@ -1,43 +1,36 @@
 
+<%= content_for :side_menu do %>
+
+  <li><%= link_to "Добавить операцию", new_bank_book_operation_path(@bank_book)  %></li>
+  <li><%= link_to 'Редактировать', edit_bank_book_path(@bank_book) %></li>
+<% end %>
 
 
-
-<%= link_to 'Изменить', edit_bank_book_path(@bank_book), class: "btn" %> |
-<%= link_to 'К списку', bank_books_path %>
 
 <div class="row">
-  <div class="span4">
-    <p>
-    <strong>Привязанные аккаунты:</strong>
-    <%= @bank_book.bank_account %>
-    </p>
 
-  </div>
-  <div class="span4">
-    <p>
-      <strong>Лицевой счёт:</strong>
-       <%= @bank_book.name %> - <%= @bank_book.id %>
-    </p>
-    <p>
-      <strong>Состояние на <%= @bank_book.updated_at.strftime("%Y-%m-%d %H:%M") %></strong>
-    <p>
-      <strong>Сумма:</strong>
-      <%= number_to_currency @bank_book.amount %>
-    </p>
+    <blockquote class="pull-right">
+      <p>
+        <strong>Лицевой счёт:</strong>
+         <%= @bank_book.name %> - <%= @bank_book.id %>
+      </p>
+      <p>
+        <strong>Состояние на <%= @bank_book.updated_at.strftime("%Y-%m-%d %H:%M") %></strong>
+      <p>
+        <strong>Сумма:</strong>
+        <%= number_to_currency @bank_book.amount %>
+      </p>
 
-    <p>
-      <strong>Сальдо:</strong>
-      <%= number_to_currency @bank_book.saldo %>
-    </p> 
-    </p>
-  </div>
+      <p>
+        <strong>Сальдо:</strong>
+        <%= number_to_currency @bank_book.saldo %>
+      </p> 
+    </blockquote>
 </div>
 <div class="row">
-  <div class="span12">
-    <%= link_to "Добавить операцию", new_bank_book_operation_path(@bank_book), class: "btn btn-primary"  %>
-  </div>
-  <div class="span4">
+
+  <div class="span6">
     <%= render partial: 'account_table', locals: {records: @bank_book.operations} %>
   </div>
-  <div class="span4">Table 2</div>
+
 </div>

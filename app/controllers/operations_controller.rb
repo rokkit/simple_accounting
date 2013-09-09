@@ -31,7 +31,7 @@ class OperationsController < ApplicationController
     @bank_book.operations << @operation
     respond_to do |format|
       if @bank_book.save
-        format.html { redirect_to @operation, notice: 'Operation was successfully created.' }
+        format.html { redirect_to @bank_book, notice: 'Operation was successfully created.' }
         format.json { render action: 'show', status: :created, location: @operation }
       else
         format.html { render action: 'new' }
@@ -59,7 +59,7 @@ class OperationsController < ApplicationController
   def destroy
     @operation.destroy
     respond_to do |format|
-      format.html { redirect_to operations_url }
+      format.html { redirect_to bank_books_path }
       format.json { head :no_content }
     end
   end
