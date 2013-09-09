@@ -4,7 +4,7 @@ class CreateOperations < ActiveRecord::Migration
       t.datetime :o_date, default: DateTime.now
       t.integer :from_id
       t.decimal :amount, :precision => 20, :scale => 10
-      t.text :description, default: ""
+      t.text :description
       t.references :user, index: true
       t.references :money_type_operation
       t.references :io_type_operation
