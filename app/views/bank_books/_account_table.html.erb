@@ -11,6 +11,7 @@
     <th>Приход/Расход</th>
     <th>Ввёл</th>
     <th></th>
+    <th></th>
   </thead>
   <tbody>
     <% records.each do |r| %>
@@ -22,9 +23,10 @@
         <td><%= r.amount %></td>
         <td><%= r.money_type_operation.name %></td>
         <td><%= r.description %></td>
-        <td<%= r.io_type_operation %></td>
+        <td><%= r.io_type_operation.name %></td>
         <td><%= r.user.try(:name) || r.user.email %></td>
-        <td><%= link_to "Удалить", operation_path(r), method: :delete, confirm: "Вы уверены?" %></td>
+        <td><%=link_to "Изменить", edit_operation_path(r), class: "btn btn-primary" %></td>
+        <td><%=link_to "Удалить", operation_path(r), method: :delete, confirm: "Вы уверены?", class: "btn btn-danger" %></td>
       </tr>
     <% end %>
   </tbody>
