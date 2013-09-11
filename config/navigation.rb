@@ -2,10 +2,11 @@
 # Configures your navigation
 SimpleNavigation::Configuration.run do |navigation|
   navigation.items do |primary|
+
+    if user_signed_in?
     primary.item :home, 'Простая бухгалтерия', root_path
     primary.item :bank_books, "Лицевые счета", bank_books_path
     primary.item :users, 'Пользователи', users_path
-    if user_signed_in?
       if current_user.has_role? :admin
         primary.item :admin_tools, "Администрирование" do |admin_actions|
           admin_actions.item :activities, "Журнал системы", activities_path
