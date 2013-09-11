@@ -13,7 +13,7 @@ class Operation < ActiveRecord::Base
   def windraw_amount_from_bank_book
     if io_type_operation.name == "Приход"
       bank_book.decrement! :amount, self.amount
-    elsif io_type_operation == "Расход"
+    elsif io_type_operation.name == "Расход"
       bank_book.increment! :amount, self.amount
     else
       raise Exception.new "Unsupported operation"
