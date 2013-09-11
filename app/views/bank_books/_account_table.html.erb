@@ -8,6 +8,7 @@
     <th>Сумма</th>
     <th>Тип</th>
     <th>Назначение</th>
+    <th>Приход/Расход</th>
     <th>Ввёл</th>
     <th></th>
   </thead>
@@ -20,6 +21,7 @@
         <td><%= r.to_user.try :name %></td>
         <td><%= r.amount %></td>
         <td><%= r.money_type_operation.name %></td>
+        <td><%= r.description %></td>
         <td<%= r.io_type_operation %></td>
         <td><%= r.user.try(:name) || r.user.email %></td>
         <td><%= link_to "Удалить", operation_path(r), method: :delete, confirm: "Вы уверены?" %></td>
