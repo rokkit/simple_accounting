@@ -17,7 +17,7 @@ SimpleNavigation::Configuration.run do |navigation|
         profile_actions.item :logout, "Выход",  destroy_user_session_path, :method=>'delete'
       end
     else
-      primary.item :login, "Войти в систему", new_user_session_path
+      primary.item :login, "Log in", new_user_session_path, class: "pull-right"
     end
     primary.dom_class = 'nav'
   end
