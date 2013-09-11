@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130906065817) do
+ActiveRecord::Schema.define(version: 20130911070743) do
 
   create_table "activities", force: true do |t|
     t.integer  "trackable_id"
@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(version: 20130906065817) do
     t.datetime "o_date",                                            default: '2013-09-05 13:39:58'
     t.integer  "from_id"
     t.decimal  "amount",                  precision: 20, scale: 10
-    t.text     "description",                                       default: ""
+    t.text     "description"
     t.integer  "user_id"
     t.integer  "money_type_operation_id"
     t.integer  "io_type_operation_id"
