@@ -1,0 +1,13 @@
+<%= simple_form_for(@http_request) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :method %>
+    <%= f.input :parameters %>
+    <%= f.input :ip_address %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

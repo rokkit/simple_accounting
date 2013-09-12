@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130911070743) do
+ActiveRecord::Schema.define(version: 20130912162218) do
 
   create_table "activities", force: true do |t|
     t.integer  "trackable_id"
@@ -46,6 +46,14 @@ ActiveRecord::Schema.define(version: 20130911070743) do
   end
 
   add_index "bank_books_users", ["bank_book_id", "user_id"], name: "index_bank_books_users_on_bank_book_id_and_user_id", unique: true
+
+  create_table "http_requests", force: true do |t|
+    t.string   "method"
+    t.string   "parameters"
+    t.string   "ip_address"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "io_type_operations", force: true do |t|
     t.string   "name"

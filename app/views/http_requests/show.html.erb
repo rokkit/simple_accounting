@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Method:</strong>
+  <%= @http_request.method %>
+</p>
+
+<p>
+  <strong>Parameters:</strong>
+  <%= @http_request.parameters %>
+</p>
+
+<p>
+  <strong>Ip address:</strong>
+  <%= @http_request.ip_address %>
+</p>
+
+<%= link_to 'Edit', edit_http_request_path(@http_request) %> |
+<%= link_to 'Back', http_requests_path %>
