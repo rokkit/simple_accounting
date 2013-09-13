@@ -10,6 +10,7 @@ SimpleNavigation::Configuration.run do |navigation|
       if current_user.has_role? :admin
         primary.item :admin_tools, "Администрирование" do |admin_actions|
           admin_actions.item :activities, "Журнал системы", activities_path
+          admin_actions.item :http_requests, "Журнал сетевых запросов", http_requests_path
         end
       end
       primary.item :user, current_user.email do |profile_actions|

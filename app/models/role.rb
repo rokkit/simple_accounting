@@ -3,4 +3,19 @@ class Role < ActiveRecord::Base
   belongs_to :resource, :polymorphic => true
   
   scopify
+
+  def to_s
+    case name
+    when "admin"
+      "Администратор"
+    when "observer"
+      "Наблюдатель"
+    when "manager"
+      "Управляющий"
+    when "attorney"
+      "Адвокат"
+    else
+      "No role"
+    end
+  end 
 end

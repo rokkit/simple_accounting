@@ -24,9 +24,9 @@
           <td><%= bank_book.bank_account %></td>
           <td><%= bank_book.amount %></td>
           <td><%= bank_book.saldo %></td>
-          <td><%= link_to 'Show', bank_book %></td>
-          <td><%= link_to 'Edit', edit_bank_book_path(bank_book) %></td>
-          <td><%= link_to 'Destroy', bank_book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Открыть', bank_book, class: "btn btn-primary" %></td>
+          <td><%= link_to 'Редактировать', edit_bank_book_path(bank_book), class: "btn" %></td>
+          <td><%= link_to 'Удалить', bank_book, method: :delete, data: { confirm: 'Вы уверены?' }, class: "btn btn-danger" %></td>
         </tr>
       <% end %>
     <% end %>
