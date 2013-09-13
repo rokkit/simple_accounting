@@ -4,7 +4,7 @@ class HttpRequestsController < ApplicationController
   # GET /http_requests
   # GET /http_requests.json
   def index
-    @http_requests = HttpRequest.order("created_at").page(params[:page]).per(10)
+    @http_requests = HttpRequest.order("created_at DESC").page(params[:page]).per(10)
   end
 
   # GET /http_requests/1
